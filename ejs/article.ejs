@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('./components/head'); %>
+</head>
+<body>
+    <%- include('./components/navbar'); %>
+    <div class="container">
+        <a href="/publications" class="btn btn-primary article-btn">&#8592; Назад</a>
+        <div class="article-content">
+            <h1 class="article-title"><%= article['title'] %> </h1>
+            <p class="article-description"><%= article['description'] !== null ? article['description'] : '' %></p>
+            <table class="table article-table table-striped table-light">
+                <tr>
+                    <th class="col-sm-4">ID</th>
+                    <td class="col-sm-8"><%= article['id'] %></td>
+                </tr>
+                <tr>
+                    <th>Publication date</th>
+                    <td><%= article['publication_date'] !== null ? article['publication_date'] : '-' %></td>
+                </tr>
+                <tr>
+                    <th>Article Rating</th>
+                    <td><%= article['rating'] %></td>
+                </tr>
+                <tr>
+                    <th>Journal</th>
+                    <td><%= journal['journal_title'] %></td>
+                </tr>
+                <tr>
+                    <th>Impact Factor of Journal</th>
+                    <td><%= journal['impact_factor'] %></td>
+                </tr>
+                <tr>
+                    <th>Co-Authors Number</th>
+                    <td><%= article['co-authors_number'] %></td>
+                </tr>
+                <tr>
+                    <th>Authors</th>
+                    <td><%= authors.join(', ') %></td>
+                </tr>
+
+            </table>
+            
+        </div>
+    </div>
+</body>
+</html>

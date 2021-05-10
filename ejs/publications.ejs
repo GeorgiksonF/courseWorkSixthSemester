@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./components/head'); %>
+</head>
+<body>
+    <%- include('./components/navbar'); %>
+
+    <div class="container">
+        <h1 class="publications-title">Publications 2019</h1>
+        <table class="table table-striped publications-table">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Publication Date</th>
+                <th scope="col">Rating</th>
+            </tr>
+            <% for(let i = 0; i < data.length; i++) { %>
+            <tr>
+                <td scope="row" class="table-id"><%= data[i]['id'] %></td>
+                <td><a class="table-link" href="/article/id=<%= data[i]['id'] %>"><%= data[i]['title'] %></a></td>
+                <td class="table-date"><%= data[i]['publication_date'] !== null ? data[i]['publication_date'] : '\u2013' %></td>
+                <td class="table-rating"><%= data[i]['rating'] %></td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+</body>
+</html>
