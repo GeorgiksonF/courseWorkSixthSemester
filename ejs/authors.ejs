@@ -5,25 +5,30 @@
 </head>
 <body>
     <%- include('./components/navbar'); %>
-
-    <div class="container">
-        <h1 class="publications-title">Authors</h1>
-        <table class="table table-striped publications-table">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Author</th>
-                <th scope="col">Articles count</th>
-                <th scope="col">Rating</th>
-            </tr>
-            <% for(let i = 0; i < data.length; i++) { %>
-            <tr>
-                <td scope="row" class="author-id"><%= data[i]['id'] %></td>
-                <td><%= data[i]['author'] %></td>
-                <td class="author-articleCount"><%= data[i]['publicCount'] %></td>
-                <td class="author-rating"><%= data[i]['rating'] %></td>
-            </tr>
-            <% } %>
-        </table>
+    
+    <div id="app">
+        <div class="container">
+            <h1 class="publications-title">Authors</h1>
+            <%- include('./components/search'); %>    
+            <table class="table table-striped publications-table">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Articles count</th>
+                    <th scope="col">Rating</th>
+                </tr>
+                <% for(let i = 0; i < data.length; i++) { %>
+                <tr>
+                    <td scope="row" class="author-id"><%= data[i]['id'] %></td>
+                    <td><%= data[i]['author'] %></td>
+                    <td class="author-articleCount"><%= data[i]['publicCount'] %></td>
+                    <td class="author-rating"><%= data[i]['rating'] %></td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
     </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
