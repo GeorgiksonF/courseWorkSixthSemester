@@ -62,14 +62,13 @@ const getAuthorsList = () => {
         let authorRating = getAuthorRating(author, articles)
 
         let authorData = {
-            id: authorId,
+            id: ++authorId,
             author: author[0]['author'],
             publicCount: author.length,
             rating: authorRating
         }
 
         authorsData.push(authorData)
-        authorId++
     }
 
     return authorsData
@@ -96,5 +95,6 @@ export const getArticle = (req, res) => {
 export const getAuthors = (req, res) => {
 
     let autrhorsList = getAuthorsList(authors, articles)
+
     res.render('authors', {title: 'Authors', active: 'authors', data: autrhorsList})
 }

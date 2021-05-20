@@ -7,13 +7,12 @@ const __dirname = path.resolve()
 const PORT = 3000
 const app = express()
 
-let urlEncodeParser = bodyParser.urlencoded({extended: false})
-
 app.set('view engine', 'ejs')
 app.set('views', path.resolve(__dirname, 'ejs'))
 
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(express.json())
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(serverRoutes)
 
 app.get('/', (req, res) => {
