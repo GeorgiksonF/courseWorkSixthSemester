@@ -75,25 +75,16 @@ const getAuthorsList = () => {
 }
 
 export const getPublications = (req, res) => {
-    if (req.params.name !== 'publications') {
-        res.sendFile(__dirname + '/404.html')
-    }
-
     res.render('publications', {title: 'Publications', active: 'publications', data: articles})
 } 
 
 export const getArticle = (req, res) => {
-    if (req.params.name !== 'article/id=:id') {
-        res.sendFile(__dirname + '/404.html')
-    }    
-
     let article = getAllData(req.params.id)
-    console.log(article)
+
     res.render('article', {title: 'Article', active: 'article', article: article['article'], authors: article['authors'], journal: article['journal']})
 }
 
 export const getAuthors = (req, res) => {
-
     let autrhorsList = getAuthorsList(authors, articles)
 
     res.render('authors', {title: 'Authors', active: 'authors', data: autrhorsList})

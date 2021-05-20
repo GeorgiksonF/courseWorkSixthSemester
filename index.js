@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
   res.render('index', {title: 'Main Page', active: 'main'})
 })
 
+
 app.listen(PORT, () => {
   console.log(`Server has been started on port ${PORT}...`)
 })
