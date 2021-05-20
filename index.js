@@ -1,6 +1,5 @@
 import express from 'express'
 import path from 'path'
-import bodyParser from 'body-parser'
 import serverRoutes from './routes/servers.js'
 
 const __dirname = path.resolve()
@@ -12,7 +11,7 @@ app.set('views', path.resolve(__dirname, 'ejs'))
 
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(express.json())
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: false}))
 app.use(serverRoutes)
 
 app.get('/', (req, res) => {
